@@ -1,6 +1,17 @@
 {
-    "dependencies": {
-        "angular": "latest"
-    },
-    "name": "HackManchester"
+  "dependencies": {
+    "angular": "latest",
+    "polymer": "Polymer/polymer#~0.4.2",
+    "core-elements": "Polymer/core-elements#~0.4.2",
+    "paper-elements": "Polymer/paper-elements#~0.4.2",
+    "angular-bind-polymer": "~0.1.0",
+    "ng-polymer-elements": "~0.1.0"
+  },
+  "name": "HackManchester",
+  "resolutions": {
+    "platform": "^0.4.0",
+    "core-component-page": "^0.4.0",
+    "polymer": "~0.4.2",
+    "angular": "~1.3.0"
+  }
 }
