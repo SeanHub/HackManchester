@@ -100,9 +100,7 @@
 
             <h2 style="color:white; text-align:center;">Groups</h2>
 
-            <!-- <core-item icon="social:group" class="menuItem">
-                <div class="item1">Coffee</div>
-            </core-item> -->
+            <!-- users own groups -->
             <div ng-repeat="group in userGroups">
                 <core-item icon="social:group" class="menuItem">
                     <div class="item1">{{group.groupName}}</div>
@@ -116,7 +114,7 @@
             </paper-button>
             
 
-            <!-- search function -->
+            <!-- search function, and both dialog templates loaded -->
             <search></search>
             <group></group>
             <username></username>
@@ -134,16 +132,13 @@
                 </paper-button>
             </paper-dialog>
 
-            <!-- Other groups?? -->
-            <core-item icon="account-circle" class="menuItem">
-                <div class="item1">Test 1</div>
-            </core-item>
-            <core-item icon="account-circle"  class="menuItem">
-                <div class="item1">Test 1</div>
-            </core-item>
-            <core-item icon="account-circle"  class="menuItem">
-                <div class="item1">Test 1</div>
-            </core-item>
+            <!-- All groups loaded from server -->
+            <div ng-repeat="group in groups">
+                <core-item icon="social:group" class="menuItem">
+                    <div class="item1">{{group.groupName}}</div>
+                </core-item>
+            </div>
+
             <core-item icon="settings"  class="menuItem" onclick="toggleDialog('userName')">
                 <div class="item1">dialogtest</div>
             </core-item>

@@ -4,7 +4,12 @@ angular.module('app').controller('init', function ($scope, data) {
     $scope.groupTags = "Group Tags";
     $scope.usersName = "Username";
     $scope.userGroups = [{ groupName: "test", groupTags: "tags"}];
-    
+    $scope.groups = [
+    	{ groupName: "test 1", groupTags: "tags"}, 
+    	{ groupName: "test2", groupTags: "tags"},
+    	{ groupName: "test3", groupTags: "tags"}
+	]
+
 	
 	$scope.search = function (term) {
 		alert(data.get(term));
