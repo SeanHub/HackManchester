@@ -2,6 +2,8 @@
   "dependencies": {
     "angular": "latest",
     "polymer": "Polymer/polymer#~0.4.2",
+    "angular": "latest",
+    "angular-google-maps": "latest",
     "core-elements": "Polymer/core-elements#~0.4.2",
     "paper-elements": "Polymer/paper-elements#~0.4.2",
     "angular-bind-polymer": "~0.1.0",
