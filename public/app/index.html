@@ -85,6 +85,11 @@
             color:black;
         }
 
+        .infoWindowCircle {
+            height:60px;
+            width:60px;
+        }
+
     </style>
 
 </head>
@@ -95,9 +100,14 @@
 
             <h2 style="color:white; text-align:center;">Groups</h2>
 
-            <core-item icon="social:group" class="menuItem">
+            <!-- <core-item icon="social:group" class="menuItem">
                 <div class="item1">Coffee</div>
-            </core-item>
+            </core-item> -->
+            <div ng-repeat="group in userGroups">
+                <core-item icon="social:group" class="menuItem">
+                    <div class="item1">{{group.groupName}}</div>
+                </core-item>
+            </div>
             <!-- my group and create -->
             <paper-button raised id="addGroup" onclick="toggleDialog('newGroup')">
                 <core-icon icon="social:group-add">
@@ -111,6 +121,19 @@
             <group></group>
             <username></username>
 
+            <paper-dialog id="infoWindow">
+
+                <core-item icon="check-circle-blank" class="infoWindowCircle">
+
+                </core-item>
+                
+                <paper-button raised onclick="">
+                    <core-icon icon="add">
+                        
+                    </core-icon>Join Group
+                </paper-button>
+            </paper-dialog>
+
             <!-- Other groups?? -->
             <core-item icon="account-circle" class="menuItem">
                 <div class="item1">Test 1</div>
@@ -123,6 +146,9 @@
             </core-item>
             <core-item icon="settings"  class="menuItem" onclick="toggleDialog('userName')">
                 <div class="item1">dialogtest</div>
+            </core-item>
+            <core-item icon="settings"  class="menuItem" onclick="toggleDialog('infoWindow')">
+                <div class="item1">infowindow</div>
             </core-item>
         </div>
 

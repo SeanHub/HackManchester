@@ -4,7 +4,7 @@
     <paper-input label="Group Name" required error="Group name is required" layout vertical class="invalid" ng-model="groupTerm"></paper-input>
     <span flex></span>
     <paper-input label="Group Tags" required error="Group tags are required" class="invalid"/ ng-model="groupTags"></paper-input>
-	<paper-button raised onclick="">
+	<paper-button raised ng-click="createGroup()">
 		<core-icon icon="social:group-add">
 		    
 		</core-icon>Create
