@@ -2,6 +2,7 @@
 <html data-ng-app="app">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <!-- bower:css -->
     <!-- endbower -->
     <!-- bower:js -->
@@ -13,25 +14,19 @@
     <script src="vendor/bluebird/js/browser/bluebird.js"></script>
     <script src="vendor/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbower -->
-    <!--<script src="vendor/polymer/polymer.js"></script>-->
     <link rel="import" href="vendor/core-drawer-panel/core-drawer-panel.html">
     <link rel="import" href="vendor/core-header-panel/core-header-panel.html">
     <link rel="import" href="vendor/core-toolbar/core-toolbar.html">
     <link rel="import" href="vendor/paper-button/paper-button.html">
     <link rel="import" href="vendor/core-icons/core-icons.html">
-
     <link rel="import" href="vendor/font-roboto/roboto.html">
-
     <link rel="import" href="vendor/core-item/core-item.html">
-
     <link rel="import" href="vendor/paper-dialog/paper-dialog.html">
-
     <link rel="import" href="vendor/paper-dialog/paper-dialog-transition.html">
-
     <link rel="import" href="vendor/paper-input/paper-input.html">
-
     <link rel="import" href="vendor/core-icons/social-icons.html">
-
+    <link rel="import" href="vendor/core-icon-button/core-icon-button.html">
+    <link rel="import" href="vendor/paper-toast/paper-toast.html">
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
     <script src="scripts/app.js" type="text/javascript"></script>
     <script src="scripts/services/data.js" type="text/javascript"></script>
@@ -47,9 +42,15 @@
 
     <script>
     function toggleDialog(id) {
-      //var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
       var dialog = document.getElementById(id);
+      if(id === "newGroup") {
+        test(document.getElementById('toast'));
+      }
       dialog.toggle();
+    }
+
+    function test(el) {
+        el.show();
     }
 
     // window.addEventListener('polymer-ready', function() { angular.bootstrap(wrap(document), ['app']); });
@@ -58,6 +59,19 @@
 
 
     <style>
+        body {
+            font-family: "Roboto";
+        }
+
+/*        .angular-google-map {
+            height: 90%;
+        }
+
+        .angular-google-map-container {
+            height: 100%;
+        }*/
+
+
         [drawer] {
             background-color: #3E3E3E;
             color: white;
@@ -73,6 +87,11 @@
 
         [icon add] {
             color:white;
+        }
+
+        #toast {
+            bottom: 0;
+            right: 0;
         }
 
         .menuItem {
@@ -103,22 +122,29 @@
 
 <body unresolved>
     <core-drawer-panel>
-        <div drawer style="overflow:hidden;"> 
+        <div drawer overflow="scroll"> 
 
-            <h2 style="color:white; text-align:center;">Groups</h2>
+            <h2 style="color:white; text-align:center;">My Groups</h2>
 
             <!-- users own groups -->
             <div ng-repeat="group in userGroups">
                 <core-item icon="social:group" class="menuItem">
                     <div class="item1">{{group.groupName}}</div>
+                    <core-icon-button icon="remove-circle" ng-click="removeUserGroups()">
+                    
                 </core-item>
+
+
             </div>
             <!-- my group and create -->
-            <paper-button raised id="addGroup" onclick="toggleDialog('newGroup')">
-                <core-icon icon="social:group-add">
-                    
-                </core-icon>New Group
-            </paper-button>
+            <div ng-show="userGroups.length == 0">
+                <paper-button raised id="addGroup" onclick="toggleDialog('newGroup')">
+                    <core-icon icon="social:group-add">
+                        
+                    </core-icon>New Group
+                </paper-button>
+            </div>
+
             
 
             <!-- search function, and both dialog templates loaded -->
@@ -126,11 +152,16 @@
             <group></group>
             <username></username>
 
+            <!-- toast notifications -->
+            <paper-toast text="TEST" id="toast" onclick="test(el)">
+            </paper-toast>
+
+
             <paper-dialog id="infoWindow">
 
                 <core-item icon="check-circle-blank" class="infoWindowCircle">
-
                 </core-item>
+                <p>Group Name</p>
                 
                 <paper-button raised onclick="">
                     <core-icon icon="add">
@@ -139,8 +170,10 @@
                 </paper-button>
             </paper-dialog>
 
+            <h2 style="color:white; text-align:center;">Local Groups</h2>
+
             <!-- All groups loaded from server -->
-            <div ng-repeat="group in groups">
+            <div ng-repeat="group in groups | filter: searchTerm">
                 <core-item icon="social:group" class="menuItem">
                     <div class="item1">{{group.groupName}}</div>
                 </core-item>

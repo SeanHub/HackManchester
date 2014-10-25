@@ -1,9 +1,9 @@
 angular.module('app').controller('init', function ($scope, data) {
-    $scope.searchTerm = "Template";
+    $scope.searchTerm = "";
     $scope.groupTerm = "Group";
     $scope.groupTags = "Group Tags";
     $scope.usersName = "Username";
-    $scope.userGroups = [{ groupName: "test", groupTags: "tags"}];
+    $scope.userGroups = [];
     $scope.groups = [
     	{ groupName: "test 1", groupTags: "tags"}, 
     	{ groupName: "test2", groupTags: "tags"},
@@ -27,6 +27,11 @@ angular.module('app').controller('init', function ($scope, data) {
 		console.log("HERE");
 		console.log($scope.groups);
 		var group = { groupName: $scope.groupTerm, groupTags: $scope.groupTags };
-		$scope.userGroups.push(group);
+		$scope.userGroups.length === 0 ? $scope.userGroups.push(group) : null;
+		
+	};
+
+	$scope.removeUserGroups = function() {
+		$scope.userGroups = [];
 	};
 });

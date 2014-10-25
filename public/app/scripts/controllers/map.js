@@ -15,6 +15,12 @@ angular.module('app').controller('map', ['$scope', '$http', 'geolocation', 'Goog
 			$scope.map.center.longitude = data.coords.longitude;
 		});
 
+		$scope.createGroupEvent = function() {
+			geolocation.getLocation(function(data) {
+				addEvent(data.coords.latitude, data.coords.longitude);
+			});
+		};
+
 		$scope.addEvent = function (lat, lon) {
 			$scope.createEvent(lat, lon);
 		};
