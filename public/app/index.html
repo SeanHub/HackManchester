@@ -5,12 +5,33 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- bower:js -->
+    <script src="vendor/platform/platform.js"></script>
     <script src="vendor/jquery/dist/jquery.js"></script>
     <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/ng-polymer-elements/ng-polymer-elements.js"></script>
     <script src="vendor/lodash/dist/lodash.compat.js"></script>
     <script src="vendor/bluebird/js/browser/bluebird.js"></script>
     <script src="vendor/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbower -->
+    <!--<script src="vendor/polymer/polymer.js"></script>-->
+    <link rel="import" href="vendor/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="vendor/core-header-panel/core-header-panel.html">
+    <link rel="import" href="vendor/core-toolbar/core-toolbar.html">
+    <link rel="import" href="vendor/paper-button/paper-button.html">
+    <link rel="import" href="vendor/core-icons/core-icons.html">
+
+    <link rel="import" href="vendor/font-roboto/roboto.html">
+
+    <link rel="import" href="vendor/core-item/core-item.html">
+
+    <link rel="import" href="vendor/paper-dialog/paper-dialog.html">
+
+    <link rel="import" href="vendor/paper-dialog/paper-dialog-transition.html">
+
+    <link rel="import" href="vendor/paper-input/paper-input.html">
+
+    <link rel="import" href="vendor/core-icons/social-icons.html">
+
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
     <script src="scripts/app.js" type="text/javascript"></script>
     <script src="scripts/services/data.js" type="text/javascript"></script>
@@ -19,12 +40,135 @@
     <script src="scripts/controllers/map.js" type="text/javascript"></script>
     <script src="scripts/directives/search.js" type="text/javascript"></script>
     <script src="scripts/directives/map.js" type="text/javascript"></script>
-    <title>Template</title>
+    <script src="scripts/directives/group.js" type="text/javascript"></script>
+    <script src="scripts/directives/username.js" type="text/javascript"></script>
+
+    <title>Geolocator</title>
+
+    <script>
+    function toggleDialog(id) {
+      //var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
+      var dialog = document.getElementById(id);
+      dialog.toggle();
+    }
+
+    // window.addEventListener('polymer-ready', function() { angular.bootstrap(wrap(document), ['app']); });
+
+    </script>
+
+
+    <style>
+        [drawer] {
+            background-color: #3E3E3E;
+            color: white;
+        }
+
+        [main] {
+            background-color: white;
+        }
+
+        [icon] {
+            color:black;
+        }
+
+        [icon add] {
+            color:white;
+        }
+
+        .menuItem {
+            background-color: white;
+            margin-top:1em;
+        }
+        .pull-right {
+            float: right;
+        }
+
+
+        #addGroup {
+            margin-top:1em;
+            background-color: white;
+            width:95%;
+            opacity: 0.8;
+            color:black;
+        }
+
+        .infoWindowCircle {
+            height:60px;
+            width:60px;
+        }
+
+    </style>
+
 </head>
 
-<body>
-    <search></search>
-	<map></map>
+<body unresolved>
+    <core-drawer-panel>
+        <div drawer style="overflow:hidden;"> 
+
+            <h2 style="color:white; text-align:center;">Groups</h2>
+
+            <!-- users own groups -->
+            <div ng-repeat="group in userGroups">
+                <core-item icon="social:group" class="menuItem">
+                    <div class="item1">{{group.groupName}}</div>
+                </core-item>
+            </div>
+            <!-- my group and create -->
+            <paper-button raised id="addGroup" onclick="toggleDialog('newGroup')">
+                <core-icon icon="social:group-add">
+                    
+                </core-icon>New Group
+            </paper-button>
+            
+
+            <!-- search function, and both dialog templates loaded -->
+            <search></search>
+            <group></group>
+            <map></map>
+            <username></username>
+
+            <paper-dialog id="infoWindow">
+
+                <core-item icon="check-circle-blank" class="infoWindowCircle">
+
+                </core-item>
+                
+                <paper-button raised onclick="">
+                    <core-icon icon="add">
+                        
+                    </core-icon>Join Group
+                </paper-button>
+            </paper-dialog>
+
+            <!-- All groups loaded from server -->
+            <div ng-repeat="group in groups">
+                <core-item icon="social:group" class="menuItem">
+                    <div class="item1">{{group.groupName}}</div>
+                </core-item>
+            </div>
+
+            <core-item icon="settings"  class="menuItem" onclick="toggleDialog('userName')">
+                <div class="item1">dialogtest</div>
+            </core-item>
+            <core-item icon="settings"  class="menuItem" onclick="toggleDialog('infoWindow')">
+                <div class="item1">infowindow</div>
+            </core-item>
+        </div>
+
+      <div main>
+        <core-toolbar>
+            <paper-button onclick="document.querySelector('core-drawer-panel').togglePanel();">
+                <core-icon icon="menu">
+            </paper-button>
+            <span flex></span>
+            <core-item icon="account-circle" onclick="" >
+                <!-- Aaronpcz -->{{usersName}}
+            </core-item>
+
+        </core-toolbar>
+      </div>
+    </core-drawer-panel>
+    
 </body>
 
 </html>

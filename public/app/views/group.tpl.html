@@ -1,0 +1,12 @@
+<paper-dialog id="newGroup" heading="Create a Group" transition="paper-dialog-transition-center">
+    <h3>{{groupTerm}}</h3>
+    <h4>{{groupTags}}</h3>
+    <paper-input label="Group Name" required error="Group name is required" layout vertical class="invalid" ng-model="groupTerm"></paper-input>
+    <span flex></span>
+    <paper-input label="Group Tags" required error="Group tags are required" class="invalid"/ ng-model="groupTags"></paper-input>
+	<paper-button raised ng-click="createGroup()">
+		<core-icon icon="social:group-add">
+		    
+		</core-icon>Create
+	</paper-button>
+</paper-dialog>

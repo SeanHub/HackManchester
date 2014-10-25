@@ -1,4 +1,4 @@
-angular.module('app', ["google-maps".ns()])
+angular.module('app', ['ng-polymer-elements', 'google-maps'.ns()])
 
 .config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
   GoogleMapApi.configure({
