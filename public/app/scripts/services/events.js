@@ -1,10 +1,13 @@
-angular.module('app').factory('events', function ($http) {
+angular.module('app').factory('events', function ($rootScope, $http) {
 	var fEvent = {};
 
 	fEvent.events = [];
 
 	fEvent.addEvent = function (event) {
 		fEvent.events.push({
+			name: event.name,
+			tags: [],
+			users: [],
 			marker: {
 				coords: {
 					latitude: event.lat,
@@ -31,10 +34,14 @@ angular.module('app').factory('events', function ($http) {
 			}
 		});
 	};
+	
+	fEvent.setEvent = function(event) {
+		$rootScope.selectedEvent = event;
+	};
 
 	$http.get('/api/getEvents').success(function (data) {
 		data.forEach(function (i) {
-			fEvent.addEvent({lat: i.coordinates.lat, lon: i.coordinates.lon});
+			fEvent.addEvent({name: i.name, lat: i.coordinates.lat, lon: i.coordinates.lon});
 		});
 	});
 

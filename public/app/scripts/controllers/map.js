@@ -10,9 +10,7 @@ angular.module('app').controller('map', ['$scope', '$http', 'events', 'geolocati
 			control: {},
 			events: {
 				idle: function (map) {
-					setInterval(function() {
-						$scope.map.control.refresh();
-					}, 5000);
+					
 				}
 			},
 			options: {

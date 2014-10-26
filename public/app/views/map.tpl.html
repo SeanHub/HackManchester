@@ -1,7 +1,3 @@
-<!-- <h1>Map</h1>
-<button ng-click='addEvent(lat, lon)'>Add Marker</button>
-<input ng-model='lat'></input>
-<input ng-model='lon'></input> -->
 <ui-gmap-google-map center='map.center' control='map.control' events="map.events" zoom='map.zoom' options="map.options" pan='false'>
 		<ui-gmap-marker ng-repeat="event in eventList" coords="event.marker.coords" idkey="event.marker.id"></ui-gmap-marker>
 		<ui-gmap-circle ng-repeat="c in eventList track by c.circle.id" center="c.circle.center" stroke="c.circle.stroke" fill="c.circle.fill" radius="c.circle.radius"

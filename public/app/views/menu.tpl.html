@@ -1,0 +1,9 @@
+<div class="navbar navbar-default navbar-static-top">
+	Menu
+</div>
+<div id="menuContent">
+	<button type="button" class="btn btn-default" id="menuAddGroup" ng-click="open()" ng-if="!selectedEvent"><span class="glyphicon glyphicon-plus"></span> Add Group</button>
+	<button type="button" class="btn btn-default" id="menuAddGroup" ng-click="remove()" ng-if="selectedEvent"><span class="glyphicon glyphicon-remove"></span> {{selectedEvent.name}}</button>
+	<input type="text" class="form-control" id="menuSearch" ng-model="menuSearch" placeholder="search">
+	<button type="button" class="btn btn-default" id="menuAddGroup" ng-click="selectEvent(event)" ng-repeat="event in events | filter:menuSearch">{{event.name}}</button>
+</div>

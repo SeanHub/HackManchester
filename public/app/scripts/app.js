@@ -1,7 +1,9 @@
-angular.module('app', ['ng-polymer-elements', 'google-maps'.ns()])
+angular.module('app', ['ui.bootstrap', 'google-maps'.ns(), 'snap'])
 
-.config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
-  GoogleMapApi.configure({
-    v: '3.17'
-  });
-}])
+.config(['GoogleMapApiProvider'.ns(), 'snapRemoteProvider',
+	function (GoogleMapApi, snapRemoteProvider) {
+		snapRemoteProvider.globalOptions.disable = 'right';
+		GoogleMapApi.configure({
+			v: '3.17'
+		});
+}]);
