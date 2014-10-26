@@ -14,7 +14,7 @@ app.get('/api/getEvents', function (req, res) {
 				lat: 53.487,
 				lon: -2.274
 			},
-			name: "",
+			name: "Magic",
 			members: [
 				{
 					id: 8
@@ -29,7 +29,7 @@ app.get('/api/getEvents', function (req, res) {
 				lat: 53.457,
 				lon: -2.254
 			},
-			name: "",
+			name: "Madness",
 			members: [
 				{
 					id: 12

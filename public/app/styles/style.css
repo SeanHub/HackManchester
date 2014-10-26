@@ -1,18 +1,55 @@
-body {} 
-
-map {
-	bottom: 0;
+body {
+	font-family: "Roboto";
 	overflow: hidden;
-	width: 100%;
-	position: absolute;
-	right: 0;
-	top: 64px;
 }
-
 .angular-google-map {
-	height: 100%;
+	position: absolute;
+	top: 25px;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
-
 .angular-google-map-container {
 	height: 100%;
+}
+#content {
+	background-color: #fff;
+	-moz-box-shadow: 0 0 20px #888;
+	-webkit-box-shadow: 0 0 20px #888;
+	box-shadow: 0 0 20px #888;
+}
+#menuContent {
+	width: 90%;
+	margin: 0 auto;
+}
+#menuAddGroup {
+	margin-bottom: 10px;
+	width: 100%;
+}
+#menuSearch {
+	margin-bottom: 10px;
+	margin-top: 50px;
+}
+#toggleMenu {
+	margin-top: 8px;
+	margin-left: 8px;
+	width: 50px;
+}
+.modal-dialog {
+	width: 90%;
+}
+.modalContent {
+	width: 90%;
+	margin: 10px auto;
+	padding: 0px;
+}
+.modalContent > h3 {
+	margin-left: 10px;
+	margin-bottom: 15px;
+}
+.modalContent > button {
+	margin-top: 10px;
+}
+.modalContent > input {
+	margin-top: 10px;
 }
