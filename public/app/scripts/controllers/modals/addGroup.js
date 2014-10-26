@@ -1,4 +1,5 @@
 angular.module('app').controller('addGroup', function ($scope, $modalInstance, events, geolocation) {
+
 	$scope.addGroup = function () {
 		geolocation.getLocation(function (data) {
 			var event = {
@@ -13,4 +14,5 @@ angular.module('app').controller('addGroup', function ($scope, $modalInstance, e
 		});
 		$modalInstance.close();
 	};
+
 });

@@ -1,5 +1,5 @@
-angular.module('app').controller('map', ['$scope', '$http', 'events', 'geolocation', 'GoogleMapApi'.ns(),
-	function ($scope, $http, events, geolocation, GoogleMapApi) {
+angular.module('app').controller('map', ['$scope', '$http', 'events', 'geolocation', 'uber', 'GoogleMapApi'.ns(),
+	function ($scope, $http, events, geolocation, uber, GoogleMapApi) {
 		$scope.eventList = events.events;
 
 		$scope.map = {

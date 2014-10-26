@@ -1,6 +1,24 @@
 <div class="modalContent">
-	<h3>{{viewedEvent.name}}</h3>
-	<button type="button" class="btn btn-default" ng-click="joinEvent(viewedEvent)">
+	<img class="img-circle" style="background:black; height:150px; width:150px;"/>
+	<hr/>
+	<h3 id="addGroupTitle">{{viewedEvent.name}}</h3>
+	<button type="button" class="btn btn-primary" ng-click="joinEvent(viewedEvent)">
 		<span class="glyphicon glyphicon-plus"></span> Join
 	</button>
+	<button type="button" class="btn btn-primary" ng-click="getTimes()">
+		<span class="glyphicon glyphicon-time"></span> Times
+	</button>
+	<button type="button" class="btn btn-primary" ng-click="getPrices()">
+		<span class="glyphicon glyphicon-gbp"></span> Prices
+	</button>
+	<div ng-repeat="price in prices">
+		<div class="alert alert-info" style="margin-top:10px;">
+			<p><span class="glyphicon glyphicon-time"></span>{{price.display_name}} would arrive in {{price.estimate}} minutes</p>
+		</div>	
+	</div>
+	<div ng-repeat="pricess in pricesToLocation">
+		<div class="alert alert-warning">
+			Journey distance {{pricess.distance}}, with an estimate of {{pricess.estimate}} {{currency_code}}
+		</div>
+	</div>
 </div>

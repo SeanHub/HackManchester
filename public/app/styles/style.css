@@ -9,6 +9,12 @@ body {
 	left: 0;
 	right: 0;
 }
+#addGroupButton {
+	width:100%;
+}
+#addGroupTitle {
+	text-align: center;
+}
 .angular-google-map-container {
 	height: 100%;
 }

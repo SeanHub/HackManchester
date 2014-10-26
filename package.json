@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
 	"author": "Sean McCann",
 	"description": "Hack Manchester",
 	"devDependencies": {
@@ -16,3 +17,22 @@
 		"http-get": "^0.5.10"
 	}
 }
+=======
+  "author": "Sean McCann",
+  "description": "Hack Manchester",
+  "devDependencies": {
+    "express": "latest",
+    "grunt": "latest",
+    "grunt-wiredep": "latest",
+    "request": "latest"
+  },
+  "name": "HackManchester",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.9.1",
+    "http-get": "^0.5.10",
+    "mongodb": "^1.4.19"
+  }
+}
+>>>>>>> Stashed changes
