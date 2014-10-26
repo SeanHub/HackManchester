@@ -25,13 +25,6 @@ angular.module('app').controller('map', ['$scope', '$http', 'events', 'geolocati
 			});
 		};
 
-		$scope.addEvent = function (lat, lon) {
-			events.addEvent({
-				lat: lat,
-				lon: lon
-			});
-		};
-
 		geolocation.getLocation(function (data) {
 			$scope.map.center.latitude = data.coords.latitude;
 			$scope.map.center.longitude = data.coords.longitude;

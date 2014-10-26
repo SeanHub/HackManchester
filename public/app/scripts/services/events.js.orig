@@ -51,11 +51,17 @@ angular.module('app').factory('events', function ($http, $rootScope) {
 		$rootScope.selectedEvent = event;
 	};
 
+<<<<<<< HEAD
+	$http.get('/api/getEvents').success(function (data) {
+		data.forEach(function (i) {
+			fEvent.addEvent({name: i.name, lat: i.coordinates.lat, lon: i.coordinates.lon});
+=======
 	fEvent.getEvents = function () {
 		$http.get('/api/getEvents').success(function (data) {
 			data.forEach(function (i) {
 				fEvent.pushEvent(i);
 			});
+>>>>>>> 83cc25d2cf0c39912ef57d647bf2df7e0e2c9c9a
 		});
 	};
 
