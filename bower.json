@@ -5,7 +5,8 @@
     "angular-google-maps": "latest",
     "core-elements": "Polymer/core-elements#~0.4.2",
     "paper-elements": "Polymer/paper-elements#~0.4.2",
-    "ng-polymer-elements": "~0.1.0"
+    "ng-polymer-elements": "~0.1.0",
+    "ngDialog": "~0.3.2"
   },
   "name": "HackManchester",
   "resolutions": {

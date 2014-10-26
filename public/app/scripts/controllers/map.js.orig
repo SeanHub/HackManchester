@@ -1,7 +1,15 @@
+<<<<<<< Updated upstream
+angular.module('app').controller('map', ['$scope', '$http', 'geolocation', 'GoogleMapApi'.ns(),
+	function ($scope, $http, geolocation, GoogleMapApi) {
+		$scope.events = [];
+
+=======
 angular.module('app').controller('map', ['$scope', '$http', 'events', 'geolocation', 'GoogleMapApi'.ns(),
 	function ($scope, $http, events, geolocation, GoogleMapApi) {
-		$scope.eventList = events.events;
 
+		$scope.eventList = events.events;
+		
+>>>>>>> Stashed changes
 		$scope.map = {
 			center: {
 				latitude: null,
@@ -9,6 +17,15 @@ angular.module('app').controller('map', ['$scope', '$http', 'events', 'geolocati
 			},
 			zoom: 12
 		};
+<<<<<<< Updated upstream
+=======
+		
+
+		$scope.addEvent = function (lat, lon) {
+			events.addEvent({lat: lat, lon: lon});
+		};
+>>>>>>> Stashed changes
+
 
 		geolocation.getLocation(function (data) {
 			$scope.map.center.latitude = data.coords.latitude;

@@ -12,6 +12,7 @@
     <script src="vendor/lodash/dist/lodash.compat.js"></script>
     <script src="vendor/bluebird/js/browser/bluebird.js"></script>
     <script src="vendor/angular-google-maps/dist/angular-google-maps.js"></script>
+
     <!-- endbower -->
     <!--<script src="vendor/polymer/polymer.js"></script>-->
     <link rel="import" href="vendor/core-drawer-panel/core-drawer-panel.html">
@@ -36,6 +37,7 @@
     <script src="scripts/app.js" type="text/javascript"></script>
     <script src="scripts/services/data.js" type="text/javascript"></script>
     <script src="scripts/services/geolocation.js" type="text/javascript"></script>
+    <script src="scripts/services/events.js" type="text/javascript"></script>
     <script src="scripts/controllers/init.js" type="text/javascript"></script>
     <script src="scripts/controllers/map.js" type="text/javascript"></script>
     <script src="scripts/directives/search.js" type="text/javascript"></script>
@@ -47,9 +49,22 @@
 
     <script>
     function toggleDialog(id) {
-      //var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
+        console.log(id);
       var dialog = document.getElementById(id);
+      if(id === "") {
+
+      } 
+      console.log(dialog);
       dialog.toggle();
+    }
+
+    function clickToOpen(data){
+        console.log(data);
+    }
+
+    function displayDialog(data){
+        console.log("FUCK YEAHH");
+        document.getElementById(data).toggle();
     }
 
     // window.addEventListener('polymer-ready', function() { angular.bootstrap(wrap(document), ['app']); });
@@ -119,10 +134,10 @@
                     
                 </core-icon>New Group
             </paper-button>
-            
+          
 
             <!-- search function, and both dialog templates loaded -->
-            <search></search>
+            
             <group></group>
             <username></username>
 
@@ -139,16 +154,32 @@
                 </paper-button>
             </paper-dialog>
 
+
+
+            <search></search>
+
             <!-- All groups loaded from server -->
             <div ng-repeat="group in groups">
-                <core-item icon="social:group" class="menuItem">
+                <core-item icon="social:group" class="menuItem" ng-click="clickToOpen(group.groupName)">
                     <div class="item1">{{group.groupName}}</div>
                 </core-item>
+                <paper-dialog id="{{group.groupName}}">
+
+                    <core-item icon="check-circle-blank" class="infoWindowCircle">
+                    </core-item>
+                    <p>{{group.groupName}}</p>
+                    
+                    <paper-button raised onclick="">
+                        <core-icon icon="add">
+                            
+                        </core-icon>Join Group
+                    </paper-button>
+                </paper-dialog>
             </div>
 
-            <core-item icon="settings"  class="menuItem" onclick="toggleDialog('userName')">
+            <!-- <core-item icon="settings"  class="menuItem" onclick="toggleDialog('userName')">
                 <div class="item1">dialogtest</div>
-            </core-item>
+            </core-item> -->
             <core-item icon="settings"  class="menuItem" onclick="toggleDialog('infoWindow')">
                 <div class="item1">infowindow</div>
             </core-item>
@@ -160,7 +191,7 @@
                 <core-icon icon="menu">
             </paper-button>
             <span flex></span>
-            <core-item icon="account-circle" onclick="" >
+            <core-item icon="account-circle" onclick="toggleDialog('userName')" >
                 <!-- Aaronpcz -->{{usersName}}
             </core-item>
 
