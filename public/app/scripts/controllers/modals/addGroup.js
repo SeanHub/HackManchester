@@ -4,7 +4,7 @@ angular.module('app').controller('addGroup', function ($scope, $modalInstance, e
 		geolocation.getLocation(function (data) {
 			var event = {
 				name: $scope.groupName,
-				owner_id: "1",
+				owner_id: localStorage.getItem('user_id'),
 				tags: $scope.groupTags,
 				lat: data.coords.latitude,
 				lon: data.coords.longitude

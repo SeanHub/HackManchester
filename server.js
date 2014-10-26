@@ -12,6 +12,8 @@ var mongodb = require('mongodb');
 var mongoClient = mongodb.MongoClient;
 var BSON = mongodb.BSONPure;
 
+var ObjectID = mongodb.ObjectID;
+
 var bodyParser= require('body-parser');
 app.use(bodyParser.json({strict:false}));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -103,9 +105,11 @@ app.get('/api/getEvent/:id', function(req, res){
 });
 
 app.post('/api/addUser', function(req,res){
+	ObjectID = mongodb.ObjectID;
+	var _id = new ObjectID();
 	var name = req.body.name;
 
-	var user = {name: name};
+	var user = {name: name, _id:_id};
 
 	var users = dbConnection.collection('users');
 	users.save(user, function(err,succ){
@@ -114,7 +118,7 @@ app.post('/api/addUser', function(req,res){
 			res.json({});
 		} else {
 			res.status(200);
-			res.json({});
+			res.json({id: _id});
 		}
 	});
 });

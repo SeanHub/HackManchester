@@ -24,6 +24,9 @@ body {
 	-webkit-box-shadow: 0 0 20px #888;
 	box-shadow: 0 0 20px #888;
 }
+#userJoin {
+	width: 100%;
+}
 #menuContent {
 	width: 90%;
 	margin: 0 auto;
