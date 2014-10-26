@@ -53,6 +53,7 @@ app.get('/api/getEvents', function(req, res){
 	events.find().toArray(function(err,result){
 		if(err) {
 			console.log(err);
+			res.json({});
 		} else {
 			res.json(result);
 		}
@@ -66,6 +67,7 @@ app.get('/api/getUsers', function(req, res){
 	users.find().toArray(function(err,result){
 		if(err) {
 			console.log(err);
+			res.json({});
 		} else {
 			res.json(result);
 		}
@@ -79,6 +81,7 @@ app.get('/api/getUser/:id', function(req, res){
 	users.findOne({_id : BSON.ObjectID.createFromHexString(req.params.id)}, function(err,result){
 		if(err) {
 			console.log(err);
+			res.json({});
 		} else {
 			res.json(result);
 		}
@@ -92,6 +95,7 @@ app.get('/api/getEvent/:id', function(req, res){
 	events.findOne({_id : BSON.ObjectID.createFromHexString(req.params.id)}, function(err,result){
 		if(err) {
 			console.log(err);
+			res.json({});
 		} else {
 			res.json(result);
 		}
@@ -107,8 +111,10 @@ app.post('/api/addUser', function(req,res){
 	users.save(user, function(err,succ){
 		if(err){
 			res.status(400);
+			res.json({});
 		} else {
 			res.status(200);
+			res.json({});
 		}
 	});
 });
@@ -128,9 +134,14 @@ app.post('/api/addEvent', function(req,res){
 	events.save(event, function(err, success){
 		if(err) {
 			res.status(404); 
+			res.json({});
 		} else {
 			res.status(200);
+<<<<<<< HEAD
 			res.json([]);
+=======
+			res.json({});
+>>>>>>> FETCH_HEAD
 		}
 	});
 
@@ -150,11 +161,13 @@ app.post('/api/addUserToEvent', function(req,res){
 	events.findOne({_id : BSON.ObjectID.createFromHexString(event)}, function(err,result){
 		if(err) {
 			res.status(400);
+			res.json({});
 		} else {
 			var eventObj = result;
 			users.findOne({_id : BSON.ObjectID.createFromHexString(user)}, function(err,result){
 				if(err) {
-					res.status(400)
+					res.status(400);
+					res.json({});
 				} else {
 					var userObj = result;
 					eventObj.users.push(userObj);
@@ -163,8 +176,11 @@ app.post('/api/addUserToEvent', function(req,res){
 							if(err) {
 								console.log(err);
 								res.status(400);
+								res.json({});
 							} else {
 								res.status(200);
+								res.json({});
+
 							}
 						});
 
@@ -172,10 +188,6 @@ app.post('/api/addUserToEvent', function(req,res){
 			})
 		}
 	});
-
-
-
-
 });
 
 app.post('/api/removeUserFromEvent', function(req,res){
@@ -191,6 +203,7 @@ app.post('/api/removeUserFromEvent', function(req,res){
 	events.findOne({_id : BSON.ObjectID.createFromHexString(event)}, function(err,result){
 		if(err) {
 			res.status(400);
+			res.json({});
 		} else {
 			var eventObj = result;
 
@@ -198,6 +211,7 @@ app.post('/api/removeUserFromEvent', function(req,res){
 			users.findOne({_id : BSON.ObjectID.createFromHexString(user)}, function(err,result){
 				if(err) {
 					res.status(400)
+					res.json({});
 				} else {
 					var userObj = result;
 					var index = eventObj.users.indexOf(userObj);
@@ -207,8 +221,10 @@ app.post('/api/removeUserFromEvent', function(req,res){
 						, function(err){
 							if(err) {
 								res.status(400);
+								res.json({});
 							} else {
 								res.status(200);
+								res.json({});
 							}
 						}
 					);
@@ -228,6 +244,7 @@ app.get('/api/getMyGroups/:id', function(req,res){
 	events.findOne({owner_id : userID}, function(err,result){
 		if(err) {
 			res.status(400);
+			res.json({});
 		} else {
 			var event = result;
 
@@ -235,6 +252,7 @@ app.get('/api/getMyGroups/:id', function(req,res){
 				events.findOne({"users._id" : BSON.ObjectID.createFromHexString(userID)}, function(err,result){
 					if(err){
 						res.status(400);
+						res.json({});
 					} else {
 						event = result;
 						res.json(result);
@@ -260,8 +278,10 @@ app.post('/api/removeUser/', function(req, res){
 		function(err,success){
 			if(err) {
 				res.status(400);
+				res.json({});
 			} else {
 				res.status(200);
+				res.json({});
 			}
 		}
 	);
@@ -278,8 +298,10 @@ app.post('/api/removeEvent/', function(req, res){
 		function(err,success){
 			if(err) {
 				res.status(400);
+				res.json({});
 			} else {
 				res.status(200);
+				res.json({});
 			}
 		}
 	);
