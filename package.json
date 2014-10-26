@@ -1,13 +1,16 @@
 {
-	"author": "Sean McCann",
-	"description": "Hack Manchester",
-	"devDependencies": {
-		"express": "latest",
-		"grunt": "latest",
-		"grunt-wiredep": "latest",
-		"request": "latest"
-	},
-	"name": "HackManchester",
-	"private": true,
-	"version": "1.0.0"
+  "author": "Sean McCann",
+  "description": "Hack Manchester",
+  "devDependencies": {
+    "express": "latest",
+    "grunt": "latest",
+    "grunt-wiredep": "latest",
+    "request": "latest"
+  },
+  "name": "HackManchester",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "http-get": "^0.5.10"
+  }
 }
