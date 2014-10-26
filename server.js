@@ -137,11 +137,7 @@ app.post('/api/addEvent', function(req,res){
 			res.json({});
 		} else {
 			res.status(200);
-<<<<<<< HEAD
-			res.json([]);
-=======
 			res.json({});
->>>>>>> FETCH_HEAD
 		}
 	});
 
