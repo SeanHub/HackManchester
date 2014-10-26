@@ -18,8 +18,9 @@ angular.module('app').factory('events', function ($http, $rootScope) {
 	fEvent.pushEvent = function (event) {
 		fEvent.events.push({
 			name: event.name,
-			tags: [],
-			users: [],
+			event_id: event._id,
+			tags: event.tags,
+			users: event.users,
 			marker: {
 				coords: {
 					latitude: event.lat,

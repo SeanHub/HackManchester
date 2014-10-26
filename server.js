@@ -124,14 +124,17 @@ app.post('/api/addUser', function(req,res){
 });
 
 app.post('/api/addEvent', function(req,res){
+	ObjectID = mongodb.ObjectID;
+	var event_id = new ObjectID();
 	var eventLat = req.body.lat;
 	var eventLon = req.body.lon;
 	var eventName = req.body.name;
 	var eventTags = req.body.tags;
 	var owner_id = req.body.owner_id;
 	var tags = eventTags.split(",");
+	var users = [{_id: BSON.ObjectID.createFromHexString(owner_id), name:'admin'}];
 
-	var event = { name: eventName, lat: eventLat, lon: eventLon, tags: tags, owner_id: owner_id};
+	var event = { name: eventName, lat: eventLat, lon: eventLon, tags: tags, owner_id: owner_id, _id: event_id, users: users};
 
 	console.log(event);
 	var events = dbConnection.collection('events');
@@ -171,7 +174,12 @@ app.post('/api/addUserToEvent', function(req,res){
 				} else {
 					var userObj = result;
 					eventObj.users.push(userObj);
-					events.update({_id: BSON.ObjectID.createFromHexString(event)}, {users: eventObj.users}
+					events.update({_id: BSON.ObjectID.createFromHexString(event)}, {name: eventObj.name,
+																					lon: eventObj.lon,
+																					lat:eventObj.lat,
+																					tags:eventObj.tags,
+																					owner_id:eventObj.owner_id,
+																					users: eventObj.users}
 					, function(err){
 							if(err) {
 								console.log(err);

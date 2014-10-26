@@ -4,6 +4,8 @@
 	</div>
 	<hr/>
 	<h3 id="addGroupTitle">{{viewedEvent.name}}</h3>
+	<div class="btn btn-default center-block usersButton" disabled ng-repeat="user in viewedEvent.users">{{user.name}}</div>
+	<hr/>
 	<div style="margin-left:12px">
 		<button type="button" class="btn btn-primary" ng-click="joinEvent(viewedEvent)">
 			<span class="glyphicon glyphicon-plus"></span> Join
@@ -17,7 +19,7 @@
 	</div>
 	<div ng-repeat="price in prices">
 		<div class="alert alert-info" style="margin-top:10px;">
-			<p><span class="glyphicon glyphicon-time"></span>{{price.display_name}} would arrive in {{price.estimate}} minutes</p>
+			<p><span class="glyphicon glyphicon-time"></span> {{price.display_name}} would arrive in {{price.estimate}} minutes</p>
 		</div>
 	</div>
 	<div ng-repeat="pricess in pricesToLocation">

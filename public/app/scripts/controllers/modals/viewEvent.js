@@ -1,11 +1,18 @@
 angular.module('app').controller('viewEvent', function ($scope, $rootScope, $modalInstance, $http, events, geolocation, uber) {
 	$scope.selectedEvent = $rootScope.selectedEvent;
 	$scope.viewedEvent = $rootScope.viewedEvent;
+	console.log($scope.viewedEvent);
 
 	$scope.prices = {};
 	$scope.pricesToLocation = {};
 
 	$scope.joinEvent = function (event) {
+		$http.post('api/addUserToEvent', {
+			userID: localStorage.getItem('user_id'),
+			eventID: event.event_id
+		}).success(function (data) {
+			
+		});
 		$rootScope.selectedEvent = event;
 		$modalInstance.close();
 	};
