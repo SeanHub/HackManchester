@@ -41,7 +41,7 @@ angular.module('app').factory('events', function ($rootScope, $http) {
 
 	$http.get('/api/getEvents').success(function (data) {
 		data.forEach(function (i) {
-			fEvent.addEvent({name: i.name, lat: i.coordinates.lat, lon: i.coordinates.lon});
+			fEvent.addEvent({name: i.name, lat: i.lat, lon: i.lon, users: i.users, owner_id: i.owner_id, _id: i._id});
 		});
 	});
 

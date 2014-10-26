@@ -40,16 +40,19 @@ body {
 	margin-left: 8px;
 	width: 50px;
 }
-.modal-dialog {
-	width: 90%;
+#navUsername {
+	font-size: 14px;
+	margin: 15px
 }
+/*.modal-dialog {
+	width: 90%;
+}*/
 .modalContent {
 	width: 90%;
 	margin: 10px auto;
 	padding: 0px;
 }
 .modalContent > h3 {
-	margin-left: 10px;
 	margin-bottom: 15px;
 }
 .modalContent > button {
