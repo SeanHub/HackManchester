@@ -3,8 +3,8 @@ angular.module('app').controller('addGroup', function ($scope, $modalInstance, e
 		geolocation.getLocation(function (data) {
 			var event = {
 				name: $scope.groupName,
-				users: [],
-				tags: ['lala'],
+				owner_id: "1",
+				tags: $scope.groupTags,
 				lat: data.coords.latitude,
 				lon: data.coords.longitude
 			};

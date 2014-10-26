@@ -130,6 +130,7 @@ app.post('/api/addEvent', function(req,res){
 			res.status(404); 
 		} else {
 			res.status(200);
+			res.json([]);
 		}
 	});
 
