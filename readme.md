@@ -1,6 +1,10 @@
-#Hack Manchester
+#Hack Manchester 2014
 
-Hack Manchester 2014 project including a node server, file watcher, bower dependency injector and karma test runner.  
+#####Made in 34 hours on no sleep in the Museum of Science and Industry in Manchester.
+
+#####A client and API that shows you what is going on where you are right now.
+
+Includes a node server, file watcher, bower dependency injector and karma test runner.  
 
 - Install NodeJS then run the following in a terminal
 >``
