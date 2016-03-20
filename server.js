@@ -1,13 +1,11 @@
 var express = require('express');
 var app = express();
 
-
 app.get('/', function (req, res) {
 	res.sendfile('./public/app/index.html');
 });
 
-
-var MONGOHQ_URL="mongodb://admin:Maxpassword124@linus.mongohq.com:10030/groupData";
+var MONGOHQ_URL=""; //MongoDB Connection String
 var mongodb = require('mongodb');
 var mongoClient = mongodb.MongoClient;
 var BSON = mongodb.BSONPure;
@@ -21,28 +19,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 var dbConnection = null;
 mongoClient.connect(MONGOHQ_URL, function(err,db){
 	err ? console.log(err) : dbConnection = db;
-
-	var userObj = { name: "Corrie", _id:"544c66fb38f2c584111f8179"};
-	var eventObj = { name:"Hack Manchester", _id: "544c654526bdf3d81387028b", "lat":"53","lon":"-2","tags":["lol","lolz"],"users":[]};
-	//addEvents(eventObj);
-	//userAddEvent(userObj,eventObj);
-	//userLeaveEvent(userObj,eventObj);
-	//removeUser(userObj);
-	//removeEvent(eventObj);
-
-	// var events = dbConnection.collection('events');
-	// var event;
-	// events.find().toArray(function(err,result){
-	// 	if(err) {
-	// 		console.log(err);
-	// 	} else {
-	// 		event = result[0];
-	// 		removeEvent(event);
-	// 	}
-	// });
-
 });
-
 
 app.use(express.static(__dirname + '/public/app'));
 

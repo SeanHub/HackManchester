@@ -5,7 +5,7 @@ angular.module('app').factory('uber', function ($http) {
 	var uber = {};
 
 	uber.getTime = function(callback) {
-		$http.defaults.headers.common.Authorization = "Token x8yQCeBVqYLqtvBw4EmdlXYTrjyCvFJRIpMQtVwC";
+		$http.defaults.headers.common.Authorization = "Token "; //Token Needed
 
 		navigator.geolocation.getCurrentPosition(function (data) {
 			console.log("MY POSITION");
@@ -16,12 +16,10 @@ angular.module('app').factory('uber', function ($http) {
 				callback(times);
 			});
 		});
-
-		
 	};
 
 	uber.getPrice = function(latitude, longitude, callback){
-		$http.defaults.headers.common.Authorization = "Token gSXzeOOffHJuXrh3S22-G4ebQoeEO7RKJjJ16gDS";
+		$http.defaults.headers.common.Authorization = "Token "; //Token Needed
 
 		navigator.geolocation.getCurrentPosition(function (data) {
 			$http.get('https://api.uber.com/v1/estimates/price?start_latitude=' 

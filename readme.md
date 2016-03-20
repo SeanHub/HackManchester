@@ -1,6 +1,6 @@
-#Project Template
+#Hack Manchester
 
-Project template including a node server, file watcher, bower dependency injector and karma test runner.  
+Hack Manchester 2014 project including a node server, file watcher, bower dependency injector and karma test runner.  
 
 - Install NodeJS then run the following in a terminal
 >``

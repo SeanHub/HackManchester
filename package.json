@@ -1,38 +1,18 @@
 {
-<<<<<<< Updated upstream
-	"author": "Sean McCann",
-	"description": "Hack Manchester",
-	"devDependencies": {
-		"body-parser": "latest",
-		"express": "latest",
-		"grunt": "latest",
-		"grunt-wiredep": "latest",
-		"mongodb": "latest",
-		"request": "latest"
-	},
-	"name": "HackManchester",
-	"private": true,
-	"version": "1.0.0",
-	"dependencies": {
-		"http-get": "^0.5.10"
-	}
+    "author": "Sean McCann",
+    "description": "Hack Manchester",
+    "devDependencies": {
+        "express": "latest",
+        "grunt": "latest",
+        "grunt-wiredep": "latest",
+        "request": "latest"
+    },
+    "name": "HackManchester",
+    "private": true,
+    "version": "1.0.0",
+    "dependencies": {
+        "body-parser": "^1.9.1",
+        "http-get": "^0.5.10",
+        "mongodb": "^1.4.19"
+    }
 }
-=======
-  "author": "Sean McCann",
-  "description": "Hack Manchester",
-  "devDependencies": {
-    "express": "latest",
-    "grunt": "latest",
-    "grunt-wiredep": "latest",
-    "request": "latest"
-  },
-  "name": "HackManchester",
-  "private": true,
-  "version": "1.0.0",
-  "dependencies": {
-    "body-parser": "^1.9.1",
-    "http-get": "^0.5.10",
-    "mongodb": "^1.4.19"
-  }
-}
->>>>>>> Stashed changes
