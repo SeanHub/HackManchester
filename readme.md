@@ -1,6 +1,6 @@
 #Hack Manchester 2014
 
-#####Made in 34 hours on no sleep in the Museum of Science and Industry in Manchester.
+#####Made in 24 hours on no sleep in the Museum of Science and Industry in Manchester.
 
 #####A client and API that shows you what is going on where you are right now.
 
